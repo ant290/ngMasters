@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Dice } from './Dice';
+import { DiceList } from './MockDiceList';
 
 @Component({
   selector: 'app-dice',
@@ -8,11 +10,16 @@ import { Component, OnInit } from '@angular/core';
 export class DiceComponent implements OnInit {
 
   // expose props for binding
-  dice = 'rolly';
+  diceList = DiceList;
+  selectedDice: Dice;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onSelect(dice: Dice): void {
+    this.selectedDice = dice;
   }
 
 }

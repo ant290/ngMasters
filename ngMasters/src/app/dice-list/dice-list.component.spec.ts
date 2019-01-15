@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DiceComponent } from './dice.component';
+import { DiceListComponent } from './dice-list.component';
 
 describe('DiceComponent', () => {
-  let component: DiceComponent;
-  let fixture: ComponentFixture<DiceComponent>;
+  let component: DiceListComponent;
+  let fixture: ComponentFixture<DiceListComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DiceComponent ]
+      declarations: [ DiceListComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DiceComponent);
+    fixture = TestBed.createComponent(DiceListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

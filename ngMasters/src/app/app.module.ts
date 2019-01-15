@@ -4,12 +4,16 @@ import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DiceComponent } from './dice/dice.component';
+import { DiceListComponent } from './dice-list/dice-list.component';
+import { DiceDetailComponent } from './dice-detail/dice-detail.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DiceComponent
+    DiceListComponent,
+    DiceDetailComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

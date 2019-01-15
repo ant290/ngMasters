@@ -1,9 +1,3 @@
-<div *ngIf=selectedDice>
-  <label>name:
-    <input [(ngModel)]="selectedDice.name" placeholder="name">
-  </label>
-</div>
-
 <h2>My Dice</h2>
 <ul class="dice" >
   <li *ngFor="let dice of diceList" 
@@ -12,3 +6,4 @@
     <span class="badge">{{dice.id}}</span> {{dice.name}}, {{dice.sides}}
   </li>
 </ul>
+<app-dice-detail [dice]="selectedDice"></app-dice-detail>

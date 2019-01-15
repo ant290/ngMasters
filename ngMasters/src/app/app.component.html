@@ -4,7 +4,10 @@
     Lets go {{ title }}!
   </h1>
 </div>
-<app-dice></app-dice>
-
-
+<div class="row">
+  <div class="col-sm-6">
+    <a routerLink="/dashboard" class="btn btn-primary">Dashboard</a>
+    <a routerLink="/diceList" class="btn btn-primary">Dice List</a>
+  </div>
+</div>
 <router-outlet></router-outlet>

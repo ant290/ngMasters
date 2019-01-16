@@ -1,9 +1,11 @@
 pipeline {
-    agent { docker { image 'node:6.3' } }
+    // agent { docker { image 'node:6.3' } }
+	agent any
     stages {
         stage('build') {
             steps {
-                sh 'npm --version'
+                bat 'npm --version'
+				bat 'ECHO hello world'
             }
         }
     }

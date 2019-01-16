@@ -1,13 +1,31 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Lets go {{ title }}!
-  </h1>
-</div>
-<div class="row">
-  <div class="col-sm-6">
-    <a routerLink="/dashboard" class="btn btn-primary">Dashboard</a>
-    <a routerLink="/diceList" class="btn btn-primary">Dice List</a>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <div style="text-align:center">
+        <h1>
+          Lets go {{ title }}!
+        </h1>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <ul class="nav">
+        <li class="nav-item">
+          <a routerLink="/dashboard" class="nav-link">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/diceList" class="nav-link">Dice List</a>    
+        </li>
+        <li class="nav-item">
+          <a routerLink="/battle" class="nav-link">Battle</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <router-outlet></router-outlet>
+    </div>
   </div>
 </div>
-<router-outlet></router-outlet>

@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { DiceListComponent } from './dice-list/dice-list.component';
 import { DiceDetailComponent } from './dice-detail/dice-detail.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { BattleComponent } from './battle/battle.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DiceListComponent,
     DiceDetailComponent,
-    DashboardComponent
+    DashboardComponent,
+    BattleComponent
   ],
   imports: [
     BrowserModule,

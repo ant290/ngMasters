@@ -1,6 +1,6 @@
 import { DiceService } from './../services/dice.service';
 import { Component, OnInit } from '@angular/core';
-import { Dice } from '../dice';
+import { Dice } from '../Dice';
 
 @Component({
   selector: 'app-dashboard',

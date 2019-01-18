@@ -1,5 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { FormsModule } from '@angular/forms';
+
 import { DiceDetailComponent } from './dice-detail.component';
 
 describe('DiceDetailComponent', () => {
@@ -8,6 +10,7 @@ describe('DiceDetailComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [FormsModule],
       declarations: [ DiceDetailComponent ]
     })
     .compileComponents();

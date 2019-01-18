@@ -1,11 +1,13 @@
 pipeline {
-    agent { docker { image 'node:10.15.0' } }
+    //agent { docker { image 'node:6.3' } }
 	//agent any
+    agent { label 'master' }
     stages {
         stage('build') {
             steps {
-                bat 'npm --version'
-				bat 'ECHO hello world'
+                echo "Hello World!"
+                //bat 'npm --version'
+				//bat 'ECHO hello world'
             }
         }
     }

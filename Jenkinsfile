@@ -1,9 +1,6 @@
 pipeline {
     agent { 
-        docker { 
-            image 'node:6-alpine'
-            args '-w C:\\Users\\Anthony.Parker-Perry\\.jenkins\\workspace\\ngMasters-MultiBranch_master'
-        } 
+        dockerfile true
     }
 	//agent any
     //agent { label 'master' }

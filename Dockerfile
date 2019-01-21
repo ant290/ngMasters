@@ -14,12 +14,12 @@ WORKDIR /usr/src/app
 ENV PATH /usr/src/app/node_modules/.bin:$PATH
 
 # install and cache app dependencies
-COPY package.json /usr/src/app/package.json
+COPY ngMasters/package.json /usr/src/app/package.json
 RUN npm install
 RUN npm install -g @angular/cli@7.1.4
 
 # add app
-COPY . /usr/src/app
+COPY ngMasters/. /usr/src/app
 
 # start app
 CMD ng serve --host 0.0.0.0

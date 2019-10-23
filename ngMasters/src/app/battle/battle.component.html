@@ -1,10 +1,33 @@
-<div class="row">
-  <div class="card col-md-6">
-    <div class="card-body">
-      <h5 class="card-title">Player Details</h5>
-      <p>player description</p>
-      <p>health: {{player.currentHealth}}/{{player.maxHealth}}</p>
-      <a class="btn btn-primary">Roll Dice!!</a>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Player Details</h5>
+          <p>player: {{player.username}}</p>
+          <p>health: {{player.currentHealth}}/{{player.maxHealth}}</p>
+          <a class="btn btn-primary">Roll Dice!!</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm">
+      <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">{{player.username}}'s Dice</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{selectedDice.length}} of 4 Cards Selected</h6>
+            <div *ngIf="selectionError" class="alert alert-warning" role="alert">
+              {{selectionError}}
+            </div>
+            <ul class="dice list-group" >
+                <li *ngFor="let dice of player.diceCollection" 
+                  (click)="onSelect(dice)" 
+                  [class.selected]="isDiceSelected(dice)"
+                  class="list-group-item">
+                  <span class="badge badge-primary">{{dice.id}}</span> {{dice.name}}, D{{dice.sides}}
+                </li>
+              </ul>
+        </div>
+      </div>
     </div>
   </div>
 </div>

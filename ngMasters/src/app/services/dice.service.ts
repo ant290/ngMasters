@@ -1,5 +1,5 @@
 import { UserDiceList, AllDice } from './../MockDiceList';
-import { Dice, UserDice } from './../Dice';
+import { Dice, UserDice, DiceHistory, IDice } from './../Dice';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
@@ -8,7 +8,11 @@ import { Observable, of } from 'rxjs';
 })
 export class DiceService {
 
-  constructor() { }
+  diceHistory: DiceHistory[];
+
+  constructor() {
+    this.diceHistory = [];
+  }
 
   /**
    * returns the list of dice owned by the player
@@ -34,8 +38,10 @@ export class DiceService {
   /**
    * rolls a given die, returns the resulting side
    */
-  roll(die: Dice): number {
-    return this.getRandomIntInclusive(1, die.sides);
+  roll(die: IDice): DiceHistory {
+    const histDie = new DiceHistory(this.getRandomIntInclusive(1, die.sides), die);
+    this.diceHistory.push(histDie);
+    return histDie;
   }
 
   /**

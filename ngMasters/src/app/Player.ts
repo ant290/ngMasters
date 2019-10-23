@@ -13,4 +13,16 @@ export class Player {
             this.currentHealth = this.maxHealth;
         }
     }
+
+    /**
+     * deals damage to the player
+     * @param dmg the damage to take
+     */
+    public takeDamage(dmg: number) {
+        if (this.currentHealth < dmg) {
+            this.currentHealth = 0;
+        } else {
+            this.currentHealth -= dmg;
+        }
+    }
 }

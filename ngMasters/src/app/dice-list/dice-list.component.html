@@ -21,6 +21,8 @@
         <div class="card-body">
           <h5 class="card-title">Possible Dice</h5>
           <button type="button" class="btn btn-primary" (click)="collectDice()">Collect Dice</button>
+        </div>
+        <div class="card-footer">
           <ul class="dice list-group">
             <li *ngFor="let dice of allDiceList"
               (click)="onSelect(dice)" 

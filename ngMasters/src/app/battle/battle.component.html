@@ -6,7 +6,13 @@
           <h5 class="card-title">Player Details</h5>
           <p>player: {{player.username}}</p>
           <p>health: {{player.currentHealth}}/{{player.maxHealth}}</p>
-          <button class="btn btn-primary" [disabled]="!canRollDice()">Roll Dice!!</button>
+          <button class="btn btn-primary" [disabled]="!canRollDice()" (click)="rollDice()">Roll Dice!!</button>
+          <ul class="list-group">
+            <li *ngFor="let dice of rolledDice"
+              class="list-group-item">
+              <span class="badge badge-primary">{{dice.diceId}}</span> {{dice.name}} Rolled: {{dice.result}}
+            </li>
+          </ul>
         </div>
       </div>
     </div>

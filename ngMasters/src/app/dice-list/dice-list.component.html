@@ -1,9 +1,37 @@
-<h2>My Dice</h2>
-<ul class="dice" >
-  <li *ngFor="let dice of diceList" 
-    (click)="onSelect(dice)" 
-    [class.selected]="dice === selectedDice">
-    <span class="badge">{{dice.id}}</span> {{dice.name}}, {{dice.sides}}
-  </li>
-</ul>
-<app-dice-detail [dice]="selectedDice"></app-dice-detail>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">My Dice</h5>
+          <ul class="dice list-group" >
+            <li *ngFor="let dice of diceList" 
+              (click)="onSelect(dice)" 
+              [class.selected]="dice === selectedDice"
+              class="list-group-item">
+              <span class="badge badge-primary">{{dice.id}}</span> {{dice.name}}, D{{dice.sides}}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">All Dice</h5>
+          <ul class="dice list-group">
+            <li *ngFor="let dice of allDiceList"
+              (click)="onSelect(dice)" 
+              [class.selected]="dice === selectedDice"
+              class="list-group-item">
+              <span class="badge badge-primary">{{dice.id}}</span> {{dice.name}}, D{{dice.sides}}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>  
+  </div>
+  <div class="row">
+    <app-dice-detail [dice]="selectedDice"></app-dice-detail>
+  </div>
+</div>

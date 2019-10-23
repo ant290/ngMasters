@@ -1,4 +1,4 @@
-import { DiceList } from './../MockDiceList';
+import { DiceList, AllDice } from './../MockDiceList';
 import { Dice } from './../Dice';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
@@ -10,8 +10,18 @@ export class DiceService {
 
   constructor() { }
 
+  /**
+   * returns the list of dice owned by the player
+   */
   getDiceList(): Observable<Dice[]> {
     return of(DiceList);
+  }
+
+  /**
+   * returns the list of all dice that can be collected
+   */
+  getAllDiceList(): Observable<Dice[]> {
+    return of(AllDice);
   }
 
   /**

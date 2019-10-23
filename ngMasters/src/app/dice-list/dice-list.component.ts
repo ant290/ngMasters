@@ -11,16 +11,22 @@ export class DiceListComponent implements OnInit {
 
   // expose props for binding
   diceList: Dice[];
+  allDiceList: Dice[];
   selectedDice: Dice;
 
   constructor(private diceService: DiceService) { }
 
   ngOnInit() {
     this.getDiceList();
+    this.getAllDice();
   }
 
   getDiceList(): void {
     this.diceService.getDiceList().subscribe(diceList => this.diceList = diceList);
+  }
+
+  getAllDice(): void {
+    this.diceService.getAllDiceList().subscribe(diceList => this.allDiceList = diceList);
   }
 
   onSelect(dice: Dice): void {

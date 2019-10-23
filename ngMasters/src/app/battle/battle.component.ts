@@ -15,6 +15,7 @@ export class BattleComponent implements OnInit {
   selectedDice: UserDice[];
   rolledDice: DiceHistory[];
   turn: number;
+  lastTurnDamage = 0;
   selectionError: string;
 
   constructor(private playerService: PlayerService,
@@ -35,11 +36,15 @@ export class BattleComponent implements OnInit {
    * rolls the selected dice, and deals that much damage to the player
    */
   rollDice(): void {
+    this.turn += 1;
+    let total = 0;
     this.selectedDice.forEach(dice => {
       const res = this.diceService.roll(dice);
       this.rolledDice.push(res);
       this.player.takeDamage(res.result);
+      total += res.result;
     });
+    this.lastTurnDamage = total;
   }
 
   /**

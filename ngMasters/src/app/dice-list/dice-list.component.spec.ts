@@ -2,8 +2,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DiceListComponent } from './dice-list.component';
 import { DiceService } from '../services/dice.service';
-import { Dice } from '../Dice';
-import { DiceList } from './../MockDiceList';
+import { Dice, UserDice } from '../Dice';
+import { UserDiceList, AllDice } from './../MockDiceList';
 import { Observable, of } from 'rxjs';
 import { DiceDetailComponent } from '../dice-detail/dice-detail.component';
 import { FormsModule } from '@angular/forms';
@@ -11,8 +11,12 @@ import { FormsModule } from '@angular/forms';
 class MockDiceService{
   diceList: Dice[];
 
-  getDiceList(): Observable<Dice[]> {
-    return of(DiceList);
+  getUserDiceList(): Observable<UserDice[]> {
+    return of(UserDiceList);
+  }
+
+  getAllDiceList(): Observable<Dice[]> {
+    return of(AllDice)
   }
 }
 

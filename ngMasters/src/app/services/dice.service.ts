@@ -1,5 +1,5 @@
-import { DiceList, AllDice } from './../MockDiceList';
-import { Dice } from './../Dice';
+import { UserDiceList, AllDice } from './../MockDiceList';
+import { Dice, UserDice } from './../Dice';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
@@ -13,8 +13,8 @@ export class DiceService {
   /**
    * returns the list of dice owned by the player
    */
-  getDiceList(): Observable<Dice[]> {
-    return of(DiceList);
+  getUserDiceList(): Observable<UserDice[]> {
+    return of(UserDiceList);
   }
 
   /**
@@ -22,6 +22,13 @@ export class DiceService {
    */
   getAllDiceList(): Observable<Dice[]> {
     return of(AllDice);
+  }
+
+  /**
+   * returns a single random dice from the list of all available dice
+   */
+  serveRandomDice(): Observable<Dice> {
+    return of(AllDice[Math.floor(Math.random() * AllDice.length)]);
   }
 
   /**

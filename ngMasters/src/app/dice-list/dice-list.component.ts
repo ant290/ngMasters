@@ -1,6 +1,6 @@
 import { DiceService } from './../services/dice.service';
 import { Component, OnInit } from '@angular/core';
-import { Dice } from '../Dice';
+import { Dice, UserDice } from '../Dice';
 
 @Component({
   selector: 'app-dice-list',
@@ -10,19 +10,19 @@ import { Dice } from '../Dice';
 export class DiceListComponent implements OnInit {
 
   // expose props for binding
-  diceList: Dice[];
+  diceList: UserDice[];
   allDiceList: Dice[];
   selectedDice: Dice;
 
   constructor(private diceService: DiceService) { }
 
   ngOnInit() {
-    this.getDiceList();
+    this.getUserDiceList();
     this.getAllDice();
   }
 
-  getDiceList(): void {
-    this.diceService.getDiceList().subscribe(diceList => this.diceList = diceList);
+  getUserDiceList(): void {
+    this.diceService.getUserDiceList().subscribe(diceList => this.diceList = diceList);
   }
 
   getAllDice(): void {
@@ -31,6 +31,13 @@ export class DiceListComponent implements OnInit {
 
   onSelect(dice: Dice): void {
     this.selectedDice = dice;
+  }
+
+  collectDice(): void {
+    this.diceService.serveRandomDice().subscribe(dice => {
+      const newDice = new UserDice(this.diceList.length + 1, dice);
+      this.diceList.push(newDice);
+    });
   }
 
 }

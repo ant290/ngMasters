@@ -42,11 +42,25 @@ export class BattleComponent implements OnInit {
     }
   }
 
+  /**
+   * checks to see if that UserDice is already in the selectedDice array
+   * @param dice the UserDice to check
+   */
   isDiceSelected(dice: UserDice): boolean {
     const found = this.selectedDice.find(function(item) {
       return item.id === dice.id;
     });
     if (found) {
+      return true;
+    }
+    return false;
+  }
+
+  /**
+   * checks to see if everything is in order for dice to be rolled
+   */
+  canRollDice(): boolean {
+    if (this.selectedDice.length === 4) {
       return true;
     }
     return false;

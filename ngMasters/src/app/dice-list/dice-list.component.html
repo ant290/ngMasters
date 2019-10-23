@@ -4,6 +4,7 @@
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">My Dice</h5>
+          <p class="card-text">To get you going, all users start with 2 Rolly and 2 Polly</p>
           <ul class="dice list-group" >
             <li *ngFor="let dice of diceList" 
               (click)="onSelect(dice)" 
@@ -25,7 +26,7 @@
               (click)="onSelect(dice)" 
               [class.selected]="dice === selectedDice"
               class="list-group-item">
-              <span class="badge badge-primary">{{dice.id}}</span> {{dice.name}}, D{{dice.sides}}
+              <span class="badge badge-primary">{{dice.diceId}}</span> {{dice.name}}, D{{dice.sides}}
             </li>
           </ul>
         </div>

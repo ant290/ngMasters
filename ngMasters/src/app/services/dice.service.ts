@@ -40,6 +40,7 @@ export class DiceService {
    */
   roll(die: IDice): DiceHistory {
     const histDie = new DiceHistory(this.getRandomIntInclusive(1, die.sides), die);
+    histDie.resultId = this.diceHistory.length + 1;
     this.diceHistory.push(histDie);
     return histDie;
   }

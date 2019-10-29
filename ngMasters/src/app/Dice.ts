@@ -29,6 +29,7 @@ export class DiceHistory implements IDice {
   name: string;
   sides: number;
   result: number;
+  resultId: number;
 
   constructor (result: number, init?: Partial<IDice>) {
     Object.assign(this, init);

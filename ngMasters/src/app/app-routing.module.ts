@@ -2,11 +2,11 @@ import { BattleComponent } from './battle/battle.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { DiceListComponent } from './dice-list/dice-list.component';
+import { MyDiceComponent } from './my-dice/my-dice.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
-  {path: 'diceList', component: DiceListComponent},
+  {path: 'diceList', component: MyDiceComponent},
   {path: 'dashboard', component: DashboardComponent},
   {path: 'battle', component: BattleComponent}
 ];

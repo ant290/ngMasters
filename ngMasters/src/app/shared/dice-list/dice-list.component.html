@@ -1,0 +1,10 @@
+<p>list component</p>
+<ul class="dice list-group" >
+  <li *ngFor="let dice of diceList; let even = even; let odd = odd" 
+    (click)="onSelect(dice)" 
+    [class.selected]="dice === selectedDice"
+    class="list-group-item"
+    [ngClass]="{odd: odd, even: even}">
+    <span class="badge badge-primary">{{dice.id}}</span> {{dice.name}}, D{{dice.sides}}
+  </li>
+</ul>

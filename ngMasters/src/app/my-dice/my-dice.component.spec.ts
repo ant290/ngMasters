@@ -1,14 +1,14 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DiceListComponent } from './dice-list.component';
+import { MyDiceComponent } from './my-dice.component';
 import { DiceService } from '../services/dice.service';
 import { Dice, UserDice } from '../Dice';
-import { UserDiceList, AllDice } from './../MockDiceList';
+import { UserDiceList, AllDice } from '../MockDiceList';
 import { Observable, of } from 'rxjs';
 import { DiceDetailComponent } from '../dice-detail/dice-detail.component';
 import { FormsModule } from '@angular/forms';
 
-class MockDiceService{
+class MockDiceService {
   diceList: Dice[];
 
   getUserDiceList(): Observable<UserDice[]> {
@@ -16,7 +16,7 @@ class MockDiceService{
   }
 
   getAllDiceList(): Observable<Dice[]> {
-    return of(AllDice)
+    return of(AllDice);
   }
 }
 
@@ -24,14 +24,14 @@ describe('DiceListComponent', () => {
 
   const mockDiceService = new MockDiceService();
 
-  let component: DiceListComponent;
-  let fixture: ComponentFixture<DiceListComponent>;
+  let component: MyDiceComponent;
+  let fixture: ComponentFixture<MyDiceComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DiceListComponent, DiceDetailComponent ],
+      declarations: [ MyDiceComponent, DiceDetailComponent ],
       imports: [FormsModule],
-      providers:[
+      providers: [
         {provide: DiceService, useValue: mockDiceService}
       ]
     })
@@ -39,7 +39,7 @@ describe('DiceListComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DiceListComponent);
+    fixture = TestBed.createComponent(MyDiceComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

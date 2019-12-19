@@ -1,13 +1,13 @@
-import { DiceService } from './../services/dice.service';
+import { DiceService } from '../services/dice.service';
 import { Component, OnInit } from '@angular/core';
 import { Dice, UserDice } from '../Dice';
 
 @Component({
-  selector: 'app-dice-list',
-  templateUrl: './dice-list.component.html',
-  styleUrls: ['./dice-list.component.css']
+  selector: 'app-my-dice',
+  templateUrl: './my-dice.component.html',
+  styleUrls: ['./my-dice.component.css']
 })
-export class DiceListComponent implements OnInit {
+export class MyDiceComponent implements OnInit {
 
   // expose props for binding
   diceList: UserDice[];

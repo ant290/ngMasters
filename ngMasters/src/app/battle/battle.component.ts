@@ -45,7 +45,7 @@ export class BattleComponent implements OnInit {
       this.player.takeDamage(res.result);
       total += res.result;
     });
-    this.diceHistoryView = this.rolledDice.reverse();
+    this.diceHistoryView = this.rolledDice.slice().reverse();
     this.lastTurnDamage = total;
   }
 

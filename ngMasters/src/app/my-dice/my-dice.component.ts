@@ -29,8 +29,12 @@ export class MyDiceComponent implements OnInit {
     this.diceService.getAllDiceList().subscribe(diceList => this.allDiceList = diceList);
   }
 
-  onSelect(dice: Dice): void {
-    this.selectedDice = dice;
+  onSelect(dice: Dice[]): void {
+    if (dice && dice.length > 0) {
+      this.selectedDice = dice[0];
+    } else {
+      this.selectedDice = null;
+    }
   }
 
   collectDice(): void {

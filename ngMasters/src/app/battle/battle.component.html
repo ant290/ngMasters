@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm">
+    <div class="col-sm-12 col-md-6">
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">Player Details</h5>
@@ -8,15 +8,15 @@
           <p>health: {{player.currentHealth}}/{{player.maxHealth}}</p>
           <button class="btn btn-primary" [disabled]="!canRollDice()" (click)="rollDice()">Roll Dice!!</button>
           <ul class="list-group">
-            <li *ngFor="let dice of rolledDice"
+            <li *ngFor="let dice of rolledDice; let i = index"
               class="list-group-item">
-              <span class="badge badge-primary">{{dice.diceId}}</span> {{dice.name}} Rolled: {{dice.result}}
+              <span class="badge badge-primary">{{i + 1}}</span> {{dice.name}} Rolled: {{dice.result}}
             </li>
           </ul>
         </div>
       </div>
     </div>
-    <div class="col-sm">
+    <div class="col-sm-12 col-md-6">
       <div class="card">
         <div class="card-body">
             <h5 class="card-title">{{player.username}}'s Dice</h5>

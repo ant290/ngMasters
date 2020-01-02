@@ -9,7 +9,7 @@ import { UserDice } from 'src/app/Dice';
 export class DiceListComponent implements OnInit {
 
   @Input() diceList: UserDice[];
-  @Input() maxSelections: number;
+  @Input() maxSelections = 0;
   @Output() selectedDiceEvent = new EventEmitter<UserDice[]>();
   selectedDice: UserDice[];
   selectionError: string;
@@ -25,6 +25,9 @@ export class DiceListComponent implements OnInit {
    * @param dice the dice to be added or removed from selectedDice
    */
   onSelect(dice: UserDice): void {
+    if (this.maxSelections === 0) {
+      return;
+    }
     if (this.isDiceSelected(dice)) {
       // remove selection
       const index = this.selectedDice.findIndex(d => d.id === dice.id);
@@ -32,8 +35,8 @@ export class DiceListComponent implements OnInit {
       this.selectionError = undefined;
     } else {
       // check it can be added
-      if (this.selectedDice.length === 4) {
-        this.selectionError = 'Only 4 Dice can be selected';
+      if (this.selectedDice.length === this.maxSelections) {
+        this.selectionError = 'Only ' + this.maxSelections + ' Dice can be selected';
         return;
       }
       // add selection

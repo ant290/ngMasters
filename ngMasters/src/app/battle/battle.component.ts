@@ -14,6 +14,7 @@ export class BattleComponent implements OnInit {
   player: Player;
   selectedDice: UserDice[];
   rolledDice: DiceHistory[];
+  diceHistoryView: DiceHistory[];
   turn: number;
   lastTurnDamage = 0;
   selectionError: string;
@@ -44,6 +45,7 @@ export class BattleComponent implements OnInit {
       this.player.takeDamage(res.result);
       total += res.result;
     });
+    this.diceHistoryView = this.rolledDice.reverse();
     this.lastTurnDamage = total;
   }
 

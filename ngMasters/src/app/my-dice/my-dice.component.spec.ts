@@ -7,6 +7,7 @@ import { UserDiceList, AllDice } from '../MockDiceList';
 import { Observable, of } from 'rxjs';
 import { DiceDetailComponent } from '../dice-detail/dice-detail.component';
 import { FormsModule } from '@angular/forms';
+import { DiceListComponent } from '../shared/dice-list/dice-list.component';
 
 class MockDiceService {
   diceList: Dice[];
@@ -29,7 +30,7 @@ describe('DiceListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MyDiceComponent, DiceDetailComponent ],
+      declarations: [ MyDiceComponent, DiceDetailComponent, DiceListComponent ],
       imports: [FormsModule],
       providers: [
         {provide: DiceService, useValue: mockDiceService}

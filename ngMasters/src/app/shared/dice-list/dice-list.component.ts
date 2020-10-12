@@ -35,9 +35,13 @@ export class DiceListComponent implements OnInit {
       this.selectionError = undefined;
     } else {
       // check it can be added
-      if (this.selectedDice.length === this.maxSelections) {
-        this.selectionError = 'Only ' + this.maxSelections + ' Dice can be selected';
+      if (this.selectedDice.length === this.maxSelections && this.maxSelections > 1) {
+        this.selectionError = `Only ${this.maxSelections} Dice can be selected`;
         return;
+      }
+      // if only one dice can be selected, then pull out the existing selection
+      if (this.maxSelections === 1) {
+        this.selectedDice.shift();
       }
       // add selection
       this.selectedDice.push(dice);

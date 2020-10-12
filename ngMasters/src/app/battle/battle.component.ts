@@ -50,24 +50,11 @@ export class BattleComponent implements OnInit {
   }
 
   /**
-   * adds or removes a selection from the array of selectedDice
-   * @param dice the dice to be added or removed from selectedDice
+   * updates a selection from the array of selectedDice
+   * @param dice the dice in selectedDice
    */
-  onSelect(dice: UserDice): void {
-    if (this.isDiceSelected(dice)) {
-      // remove selection
-      const index = this.selectedDice.findIndex(d => d.id === dice.id);
-      this.selectedDice.splice(index, 1);
-      this.selectionError = undefined;
-    } else {
-      // check it can be added
-      if (this.selectedDice.length === 4) {
-        this.selectionError = 'Only 4 Dice can be selected';
-        return;
-      }
-      // add selection
-      this.selectedDice.push(dice);
-    }
+  onSelect(dice: UserDice[]): void {
+    this.selectedDice = dice;
   }
 
   /**

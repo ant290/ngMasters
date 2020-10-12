@@ -24,14 +24,7 @@
             <div *ngIf="selectionError" class="alert alert-warning" role="alert">
               {{selectionError}}
             </div>
-            <ul class="dice list-group" >
-                <li *ngFor="let dice of player.diceCollection" 
-                  (click)="onSelect(dice)" 
-                  [class.selected]="isDiceSelected(dice)"
-                  class="list-group-item">
-                  <span class="badge badge-primary">{{dice.id}}</span> {{dice.name}}, D{{dice.sides}}
-                </li>
-              </ul>
+            <app-dice-list [diceList]="player.diceCollection" [maxSelections]="4" (selectedDiceEvent)="onSelect($event)"></app-dice-list>
         </div>
       </div>
     </div>

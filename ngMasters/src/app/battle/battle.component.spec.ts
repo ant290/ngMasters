@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BattleComponent } from './battle.component';
+import { DiceListComponent } from '../shared/dice-list/dice-list.component';
 
 describe('BattleComponent', () => {
   let component: BattleComponent;
@@ -8,7 +9,7 @@ describe('BattleComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BattleComponent ]
+      declarations: [ BattleComponent, DiceListComponent ]
     })
     .compileComponents();
   }));

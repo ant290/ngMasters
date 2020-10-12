@@ -21,7 +21,7 @@ class MockDiceService {
   }
 }
 
-describe('DiceListComponent', () => {
+describe('MyDiceComponent', () => {
 
   const mockDiceService = new MockDiceService();
 

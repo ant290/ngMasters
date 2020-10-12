@@ -17,14 +17,6 @@
         </div>
         <div class="card-footer">
           <app-dice-list [diceList]="allDiceList"></app-dice-list>
-          <ul class="dice list-group">
-            <li *ngFor="let dice of allDiceList"
-              (click)="onSelect(dice)" 
-              [class.selected]="dice === selectedDice"
-              class="list-group-item">
-              <span class="badge badge-primary">{{dice.diceId}}</span> {{dice.name}}, D{{dice.sides}}
-            </li>
-          </ul>
         </div>
       </div>
     </div>  

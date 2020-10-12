@@ -8,6 +8,6 @@
     [class.selected]="isDiceSelected(dice)"
     class="list-group-item"
     [ngClass]="{odd: odd, even: even}">
-    <span class="badge badge-primary">{{dice.id}}</span> {{dice.name}}, D{{dice.sides}}
+    <span class="badge badge-primary">#{{dice.diceId}}</span> {{dice.name}}, D{{dice.sides}}
   </li>
 </ul>

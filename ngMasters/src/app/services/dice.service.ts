@@ -29,10 +29,18 @@ export class DiceService {
   }
 
   /**
-   * returns a single random dice from the list of all available dice
+   * returns a single dice from the list of all available dice
+   * uses a loot table method
    */
   serveRandomDice(): Observable<Dice> {
     return of(AllDice[Math.floor(Math.random() * AllDice.length)]);
+    // make the loot table
+    // total up all of the drop weights
+    // const rangeTotal = AllDice.reduce((sum, current) => sum + current.rarity, 0);
+    // const rand = Math.floor(Math.random() * rangeTotal);
+
+    // make sure that the loot items are in weight order (max to min)
+    // loop through until the correct item is found
   }
 
   /**

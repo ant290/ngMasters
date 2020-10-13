@@ -5,12 +5,22 @@ export interface IDice {
 }
 
 /**
+ * defines an item which may be in a loot table
+ * the lower the number,
+ * the lower the chance of it dropping
+ */
+export interface ILootItem {
+  rarity: number;
+}
+
+/**
  * defines a collectable dice
  */
-export class Dice implements IDice {
+export class Dice implements IDice, ILootItem {
   diceId: number;
   name: string;
   sides: number;
+  rarity: number;
 }
 
 /**

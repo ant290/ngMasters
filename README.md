@@ -19,3 +19,4 @@ plan is to have a player with some health who can take some damage and own some 
 ## usefulLinks
 * Loot tables: 
   * [Loot table example post](https://www.codeproject.com/Articles/420046/Loot-Tables-Random-Maps-and-Monsters-Part-I)
+  * [Loot table example in Unity c#](https://www.youtube.com/watch?v=OUlxP4rZap0)

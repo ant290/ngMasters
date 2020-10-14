@@ -6,7 +6,8 @@ plan is to have a player with some health who can take some damage and own some 
 ## toDo!
 * Include some more detailed testing and get the repo to a standard which will allow others to understand the direction its taking
 * Improve the way dice can be obtained
-  * use some sort of look up table to do the chances of getting each dice
+  * have some way to earn new dice
+  * ~~use some sort of look up table to do the chances of getting each dice~~
 * Improve on management of player owned dice
   * Allow a player to favourite dice
   * Allow a player to create pre picked "decks" of dice

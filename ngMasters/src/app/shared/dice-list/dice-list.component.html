@@ -2,12 +2,12 @@
 <div *ngIf="selectionError" class="alert alert-warning" role="alert">
   {{selectionError}}
 </div>
-<ul class="dice list-group" >
-  <li *ngFor="let dice of diceList; let even = even; let odd = odd" 
-    (click)="onSelect(dice)" 
+<ul class="dice list-group">
+  <li *ngFor="let dice of diceList; let even = even; let odd = odd"
+    (click)="onSelect(dice)"
     [class.selected]="isDiceSelected(dice)"
     class="list-group-item"
-    [ngClass]="{odd: odd, even: even}">
+    [ngClass]="calculateClasses(odd, even, dice)">
     <span class="badge badge-primary">#{{dice.diceId}}</span> {{dice.name}}, D{{dice.sides}}
   </li>
 </ul>

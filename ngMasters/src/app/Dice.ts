@@ -1,8 +1,4 @@
-export interface IDice {
-  diceId: number;
-  name: string;
-  sides: number;
-}
+import { LootRating } from './shared/enums/enumLootRating';
 
 /**
  * defines an item which may be in a loot table
@@ -10,33 +6,59 @@ export interface IDice {
  * the lower the chance of it dropping
  */
 export interface ILootItem {
-  rarity: number;
+  lootWeight: number;
+}
+
+/**
+ * defines an item with a drawable rarity
+ */
+export interface IDrawableRarity {
+  lootRating: LootRating;
+}
+
+/**
+ * Basic dice interface
+ */
+export interface IDice {
+  diceId: number;
+  name: string;
+  sides: number;
+}
+
+/**
+ * Collectable dice interface
+ */
+export interface ICollectableDice extends IDice, IDrawableRarity {
+
 }
 
 /**
  * defines a collectable dice
  */
-export class Dice implements IDice, ILootItem {
+export class Dice implements ICollectableDice, ILootItem {
   diceId: number;
   name: string;
   sides: number;
-  rarity: number;
+  lootWeight: number;
+  lootRating: LootRating;
 }
 
 /**
  * defines a dice that is owned by a player
  */
-export class UserDice implements IDice {
+export class UserDice implements ICollectableDice {
   id: number;
   diceId: number;
   name: string;
   sides: number;
+  lootRating: LootRating;
 
-  constructor(id: number, dice: IDice) {
+  constructor(id: number, dice: ICollectableDice) {
     this.id = id;
     this.diceId = dice.diceId;
     this.name = dice.name;
     this.sides = dice.sides;
+    this.lootRating = dice.lootRating;
   }
 }
 

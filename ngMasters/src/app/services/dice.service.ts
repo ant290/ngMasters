@@ -33,14 +33,26 @@ export class DiceService {
    * uses a loot table method
    */
   serveRandomDice(): Observable<Dice> {
-    return of(AllDice[Math.floor(Math.random() * AllDice.length)]);
     // make the loot table
     // total up all of the drop weights
-    // const rangeTotal = AllDice.reduce((sum, current) => sum + current.rarity, 0);
-    // const rand = Math.floor(Math.random() * rangeTotal);
+    const diceByRarity: Dice[] = [];
+    AllDice.forEach(val => diceByRarity.push(Object.assign({}, val)));
+    const rangeTotal = diceByRarity.reduce((sum, current) => sum + current.lootWeight, 0);
+    let rand = Math.floor(Math.random() * rangeTotal);
 
     // make sure that the loot items are in weight order (max to min)
+    diceByRarity.sort((a, b) => (a.lootWeight < b.lootWeight) ? 1 : -1);
+
     // loop through until the correct item is found
+    let i = 0;
+    while (rand >= diceByRarity[i].lootWeight) {
+      // random value is bigger than loot weight
+      // reduce it by the loot weight and move on
+      rand -= diceByRarity[i].lootWeight;
+      i++;
+    }
+    // return the round item
+    return of(diceByRarity[i]);
   }
 
   /**

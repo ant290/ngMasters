@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { UserDice } from 'src/app/Dice';
+import { LootRating } from '../enums/enumLootRating';
 
 @Component({
   selector: 'app-dice-list',
@@ -61,6 +62,24 @@ export class DiceListComponent implements OnInit {
       return true;
     }
     return false;
+  }
+
+  /**
+   * calculates the class object
+   * @param odd boolean for an odd row
+   * @param even boolean for an even row
+   * @param dice UserDice in question
+   */
+  calculateClasses(odd: boolean, even: boolean, dice: UserDice) {
+    return {
+      odd: odd,
+      even: even,
+      'loot-rating-common': dice.lootRating === LootRating.common,
+      'loot-rating-uncommon': dice.lootRating === LootRating.uncommon,
+      'loot-rating-rare': dice.lootRating === LootRating.rare,
+      'loot-rating-epic': dice.lootRating === LootRating.epic,
+      'loot-rating-legendary': dice.lootRating === LootRating.legendary
+    };
   }
 
 }

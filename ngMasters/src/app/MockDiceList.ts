@@ -10,8 +10,8 @@ export const UserDiceList: UserDice[] = [
 ];
 
 export const AllDice: Dice[] = [
-    {diceId: 1, name: 'Rolly', sides: 4, lootWeight: -1, lootRating: LootRating.common},
-    {diceId: 2, name: 'Polly', sides: 4, lootWeight: -1, lootRating: LootRating.common},
+    {diceId: 1, name: 'Rolly', sides: 4, lootWeight: 0, lootRating: LootRating.common},
+    {diceId: 2, name: 'Polly', sides: 4, lootWeight: 0, lootRating: LootRating.common},
     {diceId: 3, name: 'Holly', sides: 6, lootWeight: 40, lootRating: LootRating.uncommon},
     {diceId: 4, name: 'Jolly', sides: 6, lootWeight: 40, lootRating: LootRating.uncommon},
     {diceId: 5, name: 'Golly', sides: 8, lootWeight: 15, lootRating: LootRating.rare},
